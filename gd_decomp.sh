@@ -11,5 +11,9 @@ then
     exit
 fi
 
+#remove gpr and rep files first (CAREFUL!)
+rm -rf *.gpr *.rep
+
 time $GHIDRA_PATH/support/analyzeHeadless . tmp_ghidra_project -import $1  -postscript $DECOMPILE_SCRIPT_PATH/Decompile.java $2
+
 
