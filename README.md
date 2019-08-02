@@ -4,8 +4,9 @@ this script will delete any .gpr and .rep (ghidra project files) in the director
 
 It will not delete them after decompiling, so you can open them.
 
+ghidra can be downloaded from https://ghidra-sre.org/
 
-### you will need to modify GHIDRA_PATH variable in the script before running it.
+### You will need to modify GHIDRA_PATH variable in the script before running it.
 
 ### Example Usage:
 ```
