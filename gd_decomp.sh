@@ -2,7 +2,7 @@
 
 #script to automatically decompile and output source code of a binary with ghidra
 
-GHIDRA_PATH=~/Documents/ghidra_9.0.4
+GHIDRA_PATH=~/ghidra_10.1_PUBLIC
 DECOMPILE_SCRIPT_PATH=.
 
 if [ "$#" -ne    2 ]
@@ -11,9 +11,12 @@ then
     exit
 fi
 
+echo "path to decompile script:" $DECOMPILE_SCRIPT_PATH
+
 #remove gpr and rep files first (CAREFUL!)
 rm -rf *.gpr *.rep
 
-time $GHIDRA_PATH/support/analyzeHeadless . tmp_ghidra_project -import $1  -postscript $DECOMPILE_SCRIPT_PATH/Decompile.java $2
-
+echo "running command:"
+echo time $GHIDRA_PATH/support/analyzeHeadless . tmp_ghidra_project -import $1  -postscript $DECOMPILE_SCRIPT_PATH/Decompile.java $2
+time $GHIDRA_PATH/support/analyzeHeadless . tmp_ghidra_project -import $1  -scriptPath $DECOMPILE_SCRIPT_PATH -postscript Decompile.java $2
 
